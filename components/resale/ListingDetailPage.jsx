@@ -77,16 +77,16 @@ export default async function ListingDetailPage({ slug }) {
   const breadcrumbItems = [
     { label: "Ontario", href: "/resale/ontario/homes-for-sale" },
     { label: formattedSlug, href: generateURL({ cityVal: city }) },
-    {
-      label: `${
-        homeText[propertyTypeName] || propertyTypeName || ""
-      } ${transactionType} `,
-      href: generateURL({
-        cityVal: city,
-        saleLeaseVal: transactionType?.toLowerCase(),
-        houseTypeVal: propertyTypeName?.toLowerCase() || null,
-      }),
-    },
+    // {
+    //   label: `${
+    //     homeText[propertyTypeName] || propertyTypeName || ""
+    //   } ${transactionType} `,
+    //   href: generateURL({
+    //     cityVal: city,
+    //     saleLeaseVal: transactionType?.toLowerCase(),
+    //     houseTypeVal: propertyTypeName?.toLowerCase() || null,
+    //   }),
+    // },
     {
       label: `${main_data?.StreetNumber} ${main_data?.StreetName}${" "}
       ${main_data?.StreetSuffix}`,

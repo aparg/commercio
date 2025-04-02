@@ -83,17 +83,17 @@ export default async function AlbertaListingDetailPage({ slug }) {
       label: formattedSlug,
       href: generateURL({ cityVal: city, province: "alberta" }),
     },
-    {
-      label: `${
-        homeText[propertyTypeName] || propertyTypeName || ""
-      } ${transactionType} `,
-      href: generateURL({
-        cityVal: city,
-        saleLeaseVal: transactionType?.toLowerCase(),
-        houseTypeVal: propertyTypeName?.toLowerCase() || null,
-        province: "alberta",
-      }),
-    },
+    // {
+    //   label: `${
+    //     homeText[propertyTypeName] || propertyTypeName || ""
+    //   } ${transactionType} `,
+    //   href: generateURL({
+    //     cityVal: city,
+    //     saleLeaseVal: transactionType?.toLowerCase(),
+    //     houseTypeVal: propertyTypeName?.toLowerCase() || null,
+    //     province: "alberta",
+    //   }),
+    // },
     {
       label: `${main_data?.StreetNumber} ${main_data?.StreetName}${" "}
       ${main_data?.StreetSuffix}`,

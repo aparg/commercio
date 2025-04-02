@@ -8,7 +8,6 @@ import FloatingContact from "@/components/FloatingContact";
 import "leaflet/dist/leaflet.css";
 import { Toaster } from "react-hot-toast";
 import Script from "next/script";
-import CommunityPopup from "@/components/CommunityPopup";
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
