@@ -135,7 +135,6 @@ export default function RootLayout({ children }) {
         <FloatingContact />
         <NewsLetter />
         <Footer />
-        <CommunityPopup />
       </body>
     </html>
   );
