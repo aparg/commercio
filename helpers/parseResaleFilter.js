@@ -43,50 +43,50 @@ export function parseSlug(slug, province = "ontario") {
   filters.transactionType = "For Sale";
 
   const getPropertyTypes = () => {
-    if (province == "alberta") {
-      return {
-        "semi-detached": {
-          label: "Semi-Detached",
-          subtypes: ["Semi Detached (Half Duplex)"],
-          exactPath: "semi-detached",
-        },
-        detached: {
-          label: "Detached",
-          subtypes: ["Detached"],
-          exactPath: "detached",
-        },
-        apartment: {
-          label: "Apartment",
-          subtypes: ["Apartment"],
-          exactPath: "apartment",
-        },
-      };
-    }
+    // if (province == "alberta") {
+    //   return {
+    //     "semi-detached": {
+    //       label: "Semi-Detached",
+    //       subtypes: ["Semi Detached (Half Duplex)"],
+    //       exactPath: "semi-detached",
+    //     },
+    //     detached: {
+    //       label: "Detached",
+    //       subtypes: ["Detached"],
+    //       exactPath: "detached",
+    //     },
+    //     apartment: {
+    //       label: "Apartment",
+    //       subtypes: ["Apartment"],
+    //       exactPath: "apartment",
+    //     },
+    //   };
+    // }
     return {
-      "semi-detached": {
-        label: "Semi-Detached",
-        subtypes: ["Semi-Detached"],
-        exactPath: "semi-detached",
+      retail: {
+        label: "Retail Commercial Spaces",
+        subtypes: ["Commercial Retail"],
+        exactPath: "retail",
       },
-      detached: {
-        label: "Detached",
-        subtypes: ["Detached"],
-        exactPath: "detached",
+      land: {
+        label: "Land",
+        subtypes: ["Land"],
+        exactPath: "land",
       },
-      "condo-townhomes": {
-        label: "Condo Townhome",
-        subtypes: ["Condo Townhouse"],
-        exactPath: "condo-townhomes",
+      office: {
+        label: "Office",
+        subtypes: ["Office"],
+        exactPath: "office",
       },
-      townhomes: {
-        label: "Townhomes",
-        subtypes: ["Att/Row/Townhouse"],
-        exactPath: "townhomes",
+      industrial: {
+        label: "Industrial Spaces",
+        subtypes: ["Industrial"],
+        exactPath: "industrial-space",
       },
-      condos: {
-        label: "Condo Apartment",
-        subtypes: ["Condo Apartment"],
-        exactPath: "condos",
+      medical: {
+        label: "Medical",
+        subtypes: ["Medical"],
+        exactPath: "medical",
       },
     };
   };

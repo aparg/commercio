@@ -35,34 +35,39 @@ const priceRanges = [
 
 const getPropertyTypes = (province) => {
   //alberta property types are different from ontario api
-  if (province == "alberta") {
-    return [
-      { label: "Detached", path: "detached", subtypes: ["Detached"] },
-      {
-        label: "Semi Detached",
-        path: "semi-detached",
-        subtypes: ["Semi Detached (Half Duplex)"],
-      },
-      { label: "Townhomes", path: "town-homes", subtypes: ["Row/Townhouse"] },
+  // if (province == "alberta") {
+  //   return [
+  //     { label: "Detached", path: "detached", subtypes: ["Detached"] },
+  //     {
+  //       label: "Semi Detached",
+  //       path: "semi-detached",
+  //       subtypes: ["Semi Detached (Half Duplex)"],
+  //     },
+  //     { label: "Townhomes", path: "town-homes", subtypes: ["Row/Townhouse"] },
 
-      { label: "Apartments", path: "apartment", subtypes: ["Apartment"] },
-    ];
-  }
+  //     { label: "Apartments", path: "apartment", subtypes: ["Apartment"] },
+  //   ];
+  // }
   //return below property types by default
   return [
-    { label: "Detached", path: "detached", subtypes: ["Detached"] },
+    { label: "Retail", path: "retail", subtypes: ["Commercial Retail"] },
     {
-      label: "Semi-Detached",
-      path: "semi-detached",
-      subtypes: ["Semi-Detached"],
+      label: "Land",
+      path: "land",
+      subtypes: ["Land"],
     },
-    { label: "Townhomes", path: "townhomes", subtypes: ["Att/Row/Townhouse"] },
+    { label: "Office", path: "office", subtypes: ["Office"] },
     {
-      label: "Condo Townhome",
-      path: "condo-townhomes",
-      subtypes: ["Condo Townhome"],
+      label: "Industrial Space",
+      path: "industrial-space",
+      subtypes: ["Industrial"],
     },
-    { label: "Condos", path: "condos", subtypes: ["Condos"] },
+    // {
+    //   label: "Medical",
+    //   path: "medical",
+    //   subtypes: ["Medical"],
+    // },
+    // { label: "Apartments", path: "apartment", subtypes: ["Apartment"] },
   ];
 };
 
@@ -203,7 +208,7 @@ export default function FilterBar({ currentFilters }) {
       if (restFilters.city && !allProvinces.includes(restFilters.city)) {
         urlPath = `${restFilters.city.toLowerCase().replace(/ /g, "-")}/`;
       }
-      urlPath += "homes-for-sale";
+      urlPath += "businesses";
 
       // Add price range if present
       if (restFilters.maxPrice && !restFilters.minPrice) {
@@ -482,7 +487,7 @@ export default function FilterBar({ currentFilters }) {
           </Link>
         </div>
         {/* Property Types Dropdown */}
-        {/* <CustomDropdown
+        <CustomDropdown
           trigger={
             <Button
               variant="outline"
@@ -532,7 +537,7 @@ export default function FilterBar({ currentFilters }) {
             )),
           ]}
           isActive={isFilterActive("propertyType")}
-        /> */}
+        />
 
         {/* following filters are not yet available for alberta data */}
         {province !== "Alberta" && (
