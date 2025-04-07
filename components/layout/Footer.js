@@ -79,13 +79,17 @@ const Footer = () => {
               </svg>
             </Link>
             <p className="mt-3 text-sm text-gray-600 text-justify">
-              Commercio is the online Database for new Commercial properties,
-              semi-detached, townhomes and condos in Canada. Commercio does not
-              represent any builder. The content of the pages of this website is
-              for your general information, reference only. We are not liable
-              for the use or misuse of the site's information. Prices, sizes,
-              specifications, and promotions of the condos are subject to change
-              by the builder without notice. E&OE
+              Commercio: Canada’s Leading Commercial Properties Platform Explore
+              a diverse range of commercial properties for lease or sale on
+              Commercio, Canada's leading commercial platform. Whether you're
+              looking for office lease/sale, retail lease/sale, industrial
+              lease/sale, medical lease/sale, flex lease/sale, multifamily sale,
+              or land sale, our platform offers flexible options for various
+              property types. Commercio provides exclusive listings in prime
+              locations, perfect for businesses or investors seeking to expand
+              or relocate. Start your search today and discover the ideal
+              commercial space that fits your needs on Canada's top commercial
+              property platform.
             </p>
             <p className="mt-3 text-sm">
               Contact : <Link href="tel:+16472395555">+1 647-239-5555</Link>
