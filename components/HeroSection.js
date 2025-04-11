@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import UnifiedSearchBar from "@/components/UnifiedSearchBar";
 import { generateURL } from "@/helpers/generateResaleURL";
-import LastSearchSection from "./resale/LastSearchSection";
+import LastSearchSection from "./commercial/LastSearchSection";
 
 const popularCities = [
   "Toronto",

@@ -6,22 +6,22 @@ const PriceDroppedHomes = () => {
     {
       name: "Brampton",
       count: 332,
-      slug: "/resale/ontario/brampton/price-dropped",
+      slug: "/commercial/ontario/brampton/price-dropped",
     },
     {
       name: "Mississauga",
       count: 100,
-      slug: "/resale/ontario/mississauga/price-dropped",
+      slug: "/commercial/ontario/mississauga/price-dropped",
     },
     {
       name: "Hamilton",
       count: 44,
-      slug: "/resale/ontario/hamilton/price-dropped",
+      slug: "/commercial/ontario/hamilton/price-dropped",
     },
     {
       name: "Barrie",
       count: 56,
-      slug: "/resale/ontario/barrie/price-dropped",
+      slug: "/commercial/ontario/barrie/price-dropped",
     },
   ];
 
@@ -70,7 +70,7 @@ const PriceDroppedHomes = () => {
 
         <div className="mt-16 text-center">
           <Link
-            href="/resale/ontario/price-dropped"
+            href="/commercial/ontario/price-dropped"
             className="inline-flex items-center px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-900 transition-colors"
           >
             100+ Price dropped properties in Ontario

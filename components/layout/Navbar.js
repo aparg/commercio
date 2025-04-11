@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
 import AnticipatedBottom from "@/components/AnticipatedBottom";
-import Dropdown from "@/components/resale/Dropdown";
+import Dropdown from "@/components/commercial/Dropdown";
 import { usePathname } from "next/navigation";
 import { generateURL } from "@/helpers/generateResaleURL";
 import citiesWithProvinces from "@/constant/cities";
@@ -164,7 +164,7 @@ const Navbar = () => {
   // Function to get the pre-construction link based on current path
   const getPreConstructionLink = () => {
     // Check if we're in a resale page
-    if (pathname.includes("/resale/ontario")) {
+    if (pathname.includes("/commercial/ontario")) {
       // Extract city name from path if it exists
       const pathParts = pathname.split("/");
       const cityIndex = pathParts.indexOf("ontario") + 1;

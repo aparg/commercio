@@ -40,11 +40,13 @@ const MarkerInfoCard = ({ listing, onClose }) => {
       listing.StreetNumber?.replace("/", "-"),
       listing.StreetName?.trim().replace(/ /g, "-"),
       listing.StreetSuffix,
-      listing.ListingKey
-    ].filter(Boolean).join("-");
-    
-    const url = `/resale/ontario/${citySlug}/listings/${streetAndMLS}`;
-    window.open(url, '_blank');
+      listing.ListingKey,
+    ]
+      .filter(Boolean)
+      .join("-");
+
+    const url = `/commercial/ontario/${citySlug}/listings/${streetAndMLS}`;
+    window.open(url, "_blank");
     if (onClose) onClose();
   };
 
@@ -54,7 +56,7 @@ const MarkerInfoCard = ({ listing, onClose }) => {
   };
 
   return (
-    <a 
+    <a
       href="#"
       className="block bg-white rounded-lg shadow-lg p-3 min-w-[300px] cursor-pointer hover:shadow-xl transition-shadow"
       onClick={handleClick}

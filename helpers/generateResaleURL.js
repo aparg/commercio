@@ -72,29 +72,29 @@ export const generateURL = ({
 
   // Special cases handling
   if (condoCorp && condoCorpNumber) {
-    return `/resale/${province}/${city}/condocorp-${condoCorp}-${condoCorpNumber}`;
+    return `/commercial/${province}/${city}/condocorp-${condoCorp}-${condoCorpNumber}`;
   }
 
   if (openHouse) {
     if (city) {
       if (listingIDVal) {
-        return `/resale/${province}/${city}/open-house/listings/${listingIDVal}`;
+        return `/commercial/${province}/${city}/open-house/listings/${listingIDVal}`;
       }
-      return `/resale/${province}/${city}/open-houses`;
+      return `/commercial/${province}/${city}/open-houses`;
     }
 
-    return `/resale/${province}/open-houses`;
+    return `/commercial/${province}/open-houses`;
   }
 
   if (priceDropped) {
     return city
-      ? `/resale/${province}/${city}/businesses-for-sale/price-dropped`
-      : `/resale/${province}/businesses-for-sale/price-dropped`;
+      ? `/commercial/${province}/${city}/businesses-for-sale/price-dropped`
+      : `/commercial/${province}/businesses-for-sale/price-dropped`;
   }
 
   // Listing ID handling
   if (listingIDVal && city) {
-    return `/resale/${province}/${city}/listings/${
+    return `/commercial/${province}/${city}/listings/${
       soldData ? "sold/" : ""
     }${encodeURIComponent(listingIDVal)}`;
   }
@@ -104,7 +104,7 @@ export const generateURL = ({
     priceRangesLeaseProperties[priceRange];
 
   // Build the URL
-  let finalLink = `/resale/${province}`;
+  let finalLink = `/commercial/${province}`;
   if (city) finalLink += `/${city}`;
 
   // Base case - no filters

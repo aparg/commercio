@@ -178,7 +178,7 @@ const Footer = () => {
               {popularCities.map((city) => (
                 <Link
                   key={city.name}
-                  href={"/resale/ontario/" + city.name}
+                  href={"/commercial/ontario/" + city.name}
                   className="text-sm text-gray-600 hover:text-gray-900"
                 >
                   Commercial properties in {city.name}
@@ -196,7 +196,7 @@ const Footer = () => {
               {popularCities.map((city) => (
                 <Link
                   key={city.name}
-                  href={city.link + "/resale/ontario"}
+                  href={city.link + "/commercial/ontario"}
                   className="text-sm text-gray-600 hover:text-gray-900"
                 >
                   Commercial properties in {city.name}

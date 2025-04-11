@@ -2,7 +2,7 @@ import HeroSection from "@/components/HeroSection";
 
 import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
-import ResaleCitiesSection from "@/components/resale/ResaleCitiesSection";
+import ResaleCitiesSection from "@/components/commercial/ResaleCitiesSection";
 
 import PriceDroppedHomes from "@/components/PriceDroppedHomes";
 

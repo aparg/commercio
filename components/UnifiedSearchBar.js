@@ -133,14 +133,14 @@ const UnifiedSearchBar = ({
   // Popular suggestions for each tab
   const popularSuggestions = {
     resale: [
-      { name: "Toronto", url: "/resale/ontario/toronto/homes-for-sale" },
+      { name: "Toronto", url: "/commercial/ontario/toronto/homes-for-sale" },
       {
         name: "Mississauga",
-        url: "/resale/ontario/mississauga/homes-for-sale",
+        url: "/commercial/ontario/mississauga/homes-for-sale",
       },
-      { name: "Brampton", url: "/resale/ontario/brampton/homes-for-sale" },
-      { name: "Markham", url: "/resale/ontario/markham/homes-for-sale" },
-      { name: "Oakville", url: "/resale/ontario/oakville/homes-for-sale" },
+      { name: "Brampton", url: "/commercial/ontario/brampton/homes-for-sale" },
+      { name: "Markham", url: "/commercial/ontario/markham/homes-for-sale" },
+      { name: "Oakville", url: "/commercial/ontario/oakville/homes-for-sale" },
     ],
     precon: [
       { name: "New Condos in Toronto", url: "/toronto/condos" },
@@ -209,7 +209,9 @@ const UnifiedSearchBar = ({
     if (type === "city") {
       searchData.query = item.city || item.name;
       if (item.city) {
-        searchData.url = `/resale/ontario/${slugify(item.city)}/homes-for-sale`;
+        searchData.url = `/commercial/ontario/${slugify(
+          item.city
+        )}/homes-for-sale`;
       } else if (item.name) {
         searchData.url = `/${item.name.split(",")[0].toLowerCase()}`;
       }
@@ -323,7 +325,7 @@ const UnifiedSearchBar = ({
 
     if (item.city) {
       const citySlug = slugify(item.city);
-      return `/resale/${
+      return `/commercial/${
         item.province.toLowerCase() || "ontario"
       }/${citySlug}${quadrantSlug}/homes-for-sale`;
     } else {
@@ -331,7 +333,7 @@ const UnifiedSearchBar = ({
       const address =
         item.UnparsedAddress?.split(",")[0] || item.StreetName || "";
       const listingSlug = `${slugify(address)}-${item.ListingKey}`;
-      return `/resale/ontario/${citySlug}/listings/${listingSlug}`;
+      return `/commercial/ontario/${citySlug}/listings/${listingSlug}`;
     }
   };
 
@@ -436,7 +438,7 @@ const UnifiedSearchBar = ({
                       ? lastSearch.priceRange
                       : undefined;
 
-                  return `/resale/ontario/${
+                  return `/commercial/ontario/${
                     lastSearch.city || "all"
                   }/homes-for-sale${
                     lastSearch.houseType ? `?type=${lastSearch.houseType}` : ""

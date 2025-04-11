@@ -34,7 +34,7 @@ const NewsLetter = () => {
     }
   };
 
-  const isResalePage = pathname.includes("/resale");
+  const isResalePage = pathname.includes("/commercial");
 
   return (
     !isResalePage && (
