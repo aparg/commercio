@@ -23,7 +23,7 @@ const HeroSection = () => {
   const [isResale, setIsResale] = useState(true);
   return (
     <>
-      <div className="min-h-[86vh] sm:mt-8 pb-8 relative bg-hero">
+      <div className="min-h-[86vh] sm:mt-6 pb-8 relative bg-hero">
         {/* Mobile padding */}
         <div className="block md:hidden pt-4"></div>
         {/* Desktop padding */}
@@ -57,9 +57,9 @@ const HeroSection = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex gap-x-3 justify-center md:mb-3">
-              <h2 className="text-3xl md:text-2xl lg:text-5xl font-extrabold pb-0 text-black flex items-center justify-center gap-3">
-                Sale or Lease Businesses
+            <div className="flex flex-col gap-x-3 justify-center md:mb-3">
+              <h1 className="text-3xl md:text-2xl lg:text-5xl font-extrabold pb-0 text-black flex items-center justify-center gap-3">
+                Commercial Properties across Ontario
                 {/* <Image
                   src="/canadaleaf.svg"
                   alt="canada maple leaf"
@@ -67,7 +67,7 @@ const HeroSection = () => {
                   height={80}
                   className="w-6 md:w-12 lg:w-16"
                 /> */}
-              </h2>
+              </h1>
             </div>
             {/* {
               <h1 className="text-md md:text-2xl max-w-[280px] sm:max-w-3xl mx-auto font-[500] mb-7">
@@ -89,6 +89,11 @@ const HeroSection = () => {
                   center={true}
                 />
               )}
+              <h2 className="text-sm mt-2 mb-6">
+                Explore office, retail, industrial, medical, flex, multifamily,
+                and land opportunities — for lease or for sale, all in one
+                place.
+              </h2>
               <div className="flex flex-wrap gap-3 justify-center mt-4 max-w-xl mx-auto">
                 {popularCities.map((city, index) => (
                   <Link

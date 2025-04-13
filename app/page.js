@@ -9,15 +9,15 @@ import PriceDroppedHomes from "@/components/PriceDroppedHomes";
 // Metadata configuration
 export const metadata = {
   metadataBase: new URL("https://commercio.ca"),
-  title: "Commercio - Canada's Most Trusted Commercial Real Estate Platform.",
+  title: "Commercio - Canada's most Trusted Commercial Properties Platform",
   description:
-    "Find your ideal business in the Greater Toronto Area. Browse restaurants, lands and offices for sale or rent across GTA.",
+    "Find your ideal business in the Greater Toronto Area. Browse restaurants, lands and offices for sale or rent across Ontario.",
   authors: [{ name: "Commercio", email: "info@commercio.ca" }],
   openGraph: {
     type: "website",
-    title: "Commercio - Canada's Most Trusted Commercial Real Estate Platform.",
+    title: "Commercio - Canada's most Trusted Commercial Properties Platform",
     description:
-      "Find your ideal business in the Greater Toronto Area. Browse restaurants, lands and offices for sale or rent across GTA.",
+      "Find your ideal business in the Greater Toronto Area. Browse restaurants, lands and offices for sale or rent across Ontario.",
     url: "https://commercio.ca",
     siteName: "Commercio",
     images: [{ url: "/aeee.jpg", width: 1200, height: 630 }],

@@ -151,7 +151,7 @@ const LastSearchSection = () => {
   if (url === "/commercial/ontario") return null;
 
   return (
-    <div className="text-center text-sm mt-4">
+    <div className="text-center text-sm mt-2">
       Last Search:{" "}
       <Link
         href={url}
