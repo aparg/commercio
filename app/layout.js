@@ -35,6 +35,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${plusJakartaSans.className}`}>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-BHTJPQD0EY"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-BHTJPQD0EY');
+        </script>
         <Script id="analytics" strategy="afterInteractive">
           {`
             (function() {
