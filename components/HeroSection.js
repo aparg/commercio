@@ -58,8 +58,10 @@ const HeroSection = () => {
               </div>
             </div>
             <div className="flex flex-col gap-x-3 justify-center md:mb-3">
-              <h1 className="text-3xl md:text-2xl lg:text-5xl font-extrabold pb-0 text-black flex items-center justify-center gap-3">
-                Canada's leading commercial space platform
+              <h1 className="text-3xl md:text-2xl lg:text-5xl font-extrabold pb-0 text-black flex items-center justify-center gap-3 !leading-[3.7rem]">
+                Canada's Leading
+                <br />
+                Commercial Space Platform
                 {/* <Image
                   src="/canadaleaf.svg"
                   alt="canada maple leaf"
