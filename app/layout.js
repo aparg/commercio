@@ -40,11 +40,20 @@ export default function RootLayout({ children }) {
           src="https://www.googletagmanager.com/gtag/js?id=G-BHTJPQD0EY"
         ></script>
         <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'G-BHTJPQD0EY');
+          <Script
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                  window.dataLayer = window.dataLayer || []
+                  function gtag() {
+                  dataLayer.push(arguments)
+                  }
+                  gtag('js', new Date());
+                  gtag('config', 'G-BHTJPQD0EY')`,
+            }}
+          />
         </script>
-        <Script id="analytics" strategy="afterInteractive">
+        {/* <Script id="analytics" strategy="afterInteractive">
           {`
             (function() {
               const TRACKING_URL = 'https://analytics.homebaba.ca/api/track/';
@@ -135,7 +144,7 @@ export default function RootLayout({ children }) {
               });
             })();
           `}
-        </Script>
+        </Script> */}
         <NextTopLoader color="red" height={3} />
         <Navbar />
         <Toaster position="top-center" />
