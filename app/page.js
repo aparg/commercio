@@ -80,7 +80,7 @@ export default async function Home() {
 
       <HeroSection />
       {/* <BestExperience /> */}
-      <PriceDroppedHomes />
+      {/* <PriceDroppedHomes /> */}
       <ResaleCitiesSection />
       <div className="my-10 md:my-20"></div>
 
