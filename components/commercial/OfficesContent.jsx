@@ -24,7 +24,7 @@ const OfficesContent = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 px-4 sm:px-6 flex-1 gap-x-2 gap-y-2">
         {cities.map((city) => (
           <Link
-            href={`/commercial/ontario/${city.name.toLowerCase()}/offices-for-lease`}
+            href={`/commercial/ontario/${city.name.toLowerCase()}/office-for-sale`}
             key={city.id}
             className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
           >
