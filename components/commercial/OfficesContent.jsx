@@ -9,10 +9,10 @@ const OfficesContent = () => {
     { name: "Toronto", imageUrl: "/office-building2.jpg", link: "/" },
   ];
   return (
-    <div className="mx-20 flex py-10 sm:py-20">
+    <div className="sm:mx-20 flex py-10 sm:py-20">
       <div className="flex-1 p-4">
         <div className="text-center h-full flex flex-col items-center justify-center">
-          <h1 className="text-3xl sm:text-[5rem] font-bold bg-gradient-to-r from-red-600 to-black bg-clip-text text-transparent text-left leading-[5.8rem]">
+          <h1 className="text-3xl sm:text-[5rem] font-bold bg-gradient-to-r from-red-600 to-black bg-clip-text text-transparent text-left sm:leading-[5.8rem]">
             Explore Office Spaces
           </h1>
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed text-left mt-6">

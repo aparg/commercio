@@ -110,7 +110,7 @@ export default async function Home() {
       <div className="my-10 md:my-32"></div>
 
       <div className="my-10 md:my-32"></div>
-      <div className="mx-20">
+      <div className="sm:mx-20">
         <PropertyDisplaySection
           title={`Retail for sale in Ontario`}
           subtitle={`Check out 100+ listings near this property. Listings updated daily`}
@@ -121,7 +121,7 @@ export default async function Home() {
         </PropertyDisplaySection>
       </div>
       <OfficesContent />
-      <div className="mx-20">
+      <div className="sm:mx-20">
         <PropertyDisplaySection
           title={`Land for sale in Ontario`}
           subtitle={`Check out 100+ listings near this property. Listings updated daily`}
@@ -131,7 +131,7 @@ export default async function Home() {
           <Slider data={land} type="resale" province="ontario" />
         </PropertyDisplaySection>
       </div>
-      <div className="mx-20">
+      <div className="sm:mx-20">
         <PropertyDisplaySection
           title={`Industrial Space for sale in Ontario`}
           subtitle={`Check out 100+ listings near this property. Listings updated daily`}

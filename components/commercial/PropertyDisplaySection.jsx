@@ -11,7 +11,7 @@ const PropertyDisplaySection = ({
 }) => {
   return (
     <div className="my-10 md:my-32 max-w-[96%] mx-auto sm:max-w-full">
-      <div className="my-2 sm:my-4 flex flex-col items-center">
+      <div className="my-2 sm:my-4 flex flex-col sm:items-center">
         <h3 className="text-lg sm:text-4xl font-bold w-[100%] sm:w-auto">
           {title}
         </h3>
