@@ -117,7 +117,7 @@ export default async function Home() {
           exploreAllLink={"/commercial/ontario/retail-for-sale"}
           exploreText={"See more retail stores in Ontario"}
         >
-          <Slider data={land} type="resale" province="ontario" />
+          <Slider data={retail} type="resale" province="ontario" />
         </PropertyDisplaySection>
       </div>
       <OfficesContent />
@@ -128,7 +128,7 @@ export default async function Home() {
           exploreAllLink={"/commercial/ontario/retail-for-sale"}
           exploreText={"See more lands in Ontario"}
         >
-          <Slider data={retail} type="resale" province="ontario" />
+          <Slider data={land} type="resale" province="ontario" />
         </PropertyDisplaySection>
       </div>
       <div className="mx-20">
