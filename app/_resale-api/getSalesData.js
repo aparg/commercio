@@ -182,7 +182,8 @@ export const getFilteredRetsData = async (queryParams, soldData = false) => {
         );
       }
     }
-
+    if (queryParams.houseType)
+      selectQueryArray.push(`PropertySubType eq '${queryParams.houseType}'`);
     let selectQuery = selectQueryArray.join(" and ");
     const skipQuery = `${queryParams.offset}`;
     const limitQuery = `${queryParams.limit}`;
@@ -206,8 +207,6 @@ export const getFilteredRetsData = async (queryParams, soldData = false) => {
     //     }
     //   });
     // }
-    if (queryParams.houseType)
-      selectQuery += ` and PropertySubType eq '${queryParams.houseType}'`;
 
     // console.log(queryParams.Basement);
     // if (queryParams.Basement?.includes("Walkout")) {
@@ -413,7 +412,6 @@ export const fetchOpenHouse = async ({ city = null }) => {
   const currentTime = Date.now();
   const cacheKey = city?.toLowerCase() || "ontario"; // Use city as cache key
   if (cache[cacheKey] && currentTime - cache[cacheKey].timestamp < 3600000) {
-    console.log("Returning cached data for city:", city);
     return cache[cacheKey].data; // Return cached data
   }
   for (let i = 0; i < value.length; i += batchSize) {
@@ -478,7 +476,6 @@ export const searchProperties = async (inputValue) => {
 
 export async function getOpenHouseData(listingKey) {
   const url = residential.openHouse + `&$filter=ListingKey eq '${listingKey}'`;
-  console.log(url);
   try {
     const response = await fetch(url, {
       headers: {

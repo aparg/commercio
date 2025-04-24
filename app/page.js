@@ -5,6 +5,11 @@ import Image from "next/image";
 import ResaleCitiesSection from "@/components/commercial/ResaleCitiesSection";
 
 import PriceDroppedHomes from "@/components/PriceDroppedHomes";
+import PropertyDisplaySection from "@/components/commercial/PropertyDisplaySection";
+import { getFilteredAlbertaData } from "./_resale-api/getPillar9Data";
+import { getFilteredRetsData } from "./_resale-api/getSalesData";
+import Slider from "@/components/commercial/Slider";
+import OfficesContent from "@/components/commercial/OfficesContent";
 
 // Metadata configuration
 export const metadata = {
@@ -64,7 +69,21 @@ export const metadata = {
 
 export default async function Home() {
   // Server-side data fetching
-
+  const land = await getFilteredRetsData({
+    houseType: "Land",
+    offset: 0,
+    limit: 8,
+  });
+  const industrialSpaces = await getFilteredRetsData({
+    houseType: "Industrial",
+    offset: 0,
+    limit: 8,
+  });
+  const retail = await getFilteredRetsData({
+    houseType: "Commercial Retail",
+    offset: 0,
+    limit: 8,
+  });
   return (
     <>
       {/* <Script
@@ -91,6 +110,37 @@ export default async function Home() {
       <div className="my-10 md:my-32"></div>
 
       <div className="my-10 md:my-32"></div>
+      <div className="mx-20">
+        <PropertyDisplaySection
+          title={`Retail for sale in Ontario`}
+          subtitle={`Check out 100+ listings near this property. Listings updated daily`}
+          exploreAllLink={"/commercial/ontario/retail-for-sale"}
+          exploreText={"See more retail stores in Ontario"}
+        >
+          <Slider data={land} type="resale" province="ontario" />
+        </PropertyDisplaySection>
+      </div>
+      <OfficesContent />
+      <div className="mx-20">
+        <PropertyDisplaySection
+          title={`Land for sale in Ontario`}
+          subtitle={`Check out 100+ listings near this property. Listings updated daily`}
+          exploreAllLink={"/commercial/ontario/retail-for-sale"}
+          exploreText={"See more lands in Ontario"}
+        >
+          <Slider data={retail} type="resale" province="ontario" />
+        </PropertyDisplaySection>
+      </div>
+      <div className="mx-20">
+        <PropertyDisplaySection
+          title={`Industrial Space for sale in Ontario`}
+          subtitle={`Check out 100+ listings near this property. Listings updated daily`}
+          exploreAllLink={"/commercial/ontario/retail-for-sale"}
+          exploreText={"See more industrial spaces in Ontario"}
+        >
+          <Slider data={industrialSpaces} type="resale" province="ontario" />
+        </PropertyDisplaySection>
+      </div>
 
       {/* <Testimonial
         testimonialText="This platform is exactly what new realtors need, a fantastic way to search and explore projects"
@@ -115,6 +165,7 @@ export default async function Home() {
           Don't know where to start? Contact us today!
         </p>
       </div>
+
       <ContactForm />
       <div className="my-10 md:my-32"></div>
 

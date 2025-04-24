@@ -19,7 +19,7 @@ const Slider = ({ data, type, soldData = false, province = "ontario" }) => {
   return (
     <div className="relative flex justify-center">
       <div
-        className={`w-full grid grid-rows-1 grid-cols-2 sm:grid-cols-5 overflow-x-hidden grid-nowrap justify-between sm:py-3 gap-1 md:gap-4 auto-rows-[minmax(100px,_auto)]`}
+        className={`w-full grid grid-rows-1 grid-cols-2 sm:grid-cols-4 overflow-x-hidden grid-nowrap justify-between sm:py-3 gap-1 md:gap-4 auto-rows-[minmax(100px,_auto)] mx-4`}
         id="slider"
         ref={scrollRef}
       >

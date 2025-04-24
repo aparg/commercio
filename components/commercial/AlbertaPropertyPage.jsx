@@ -89,7 +89,6 @@ const AlbertaPropertyPage = ({
 
   const quadrantIndex = main_data?.District.split(" ").indexOf("Zone") + 1;
   const quadrant = main_data?.District.split(" ")[quadrantIndex];
-  console.log(quadrant);
   return (
     <>
       <div className="col-12 mt-2">

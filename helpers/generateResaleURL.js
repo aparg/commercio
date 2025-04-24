@@ -56,7 +56,6 @@ export const generateURL = ({
     normalizeSaleLeaseType(saleLeaseVal) ||
     normalizeSaleLeaseType(filterState?.saleLease) ||
     "sale"; // Default to 'sale' if no valid value
-  console.log(cityVal);
   let city = cityVal?.split("/")[0]?.toLowerCase().replaceAll(" ", "-");
   if (cityVal?.split("/").length > 0)
     city = [city, cityVal.split("/")[1]].join("/");

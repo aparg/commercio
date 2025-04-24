@@ -1,6 +1,6 @@
 import { BASE_URL, PILLAR9_BASEURL } from "..";
 export const residential = {
-  properties: `${BASE_URL}/odata/Property?$query`,
+  properties: `${BASE_URL}/odata/Property$query`,
   photos: `${BASE_URL}/odata/Media?$filter=ResourceRecordKey eq 'MLS' and MediaType eq 'image/jpeg' and MediaStatus eq 'Active'`,
   search: `${BASE_URL}/odata/Property?$filter=contains(UnparsedAddress,'$value')&$select=UnparsedAddress,StreetName,City,ListPrice&$top=5`,
   propertyRooms: `${BASE_URL}/odata/PropertyRooms$query`,

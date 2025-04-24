@@ -39,7 +39,6 @@ const OtherAmentities = ({ amenities }) => {
     <div className="mt-12">
       <p className="font-semibold pb-3 text-2xl sm:text-3xl"> Amenities</p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 gap-y-8 mt-4">
-        {console.log(amenities)}
         {Array.isArray(amenities) &&
           amenities?.map((amenity, index) => (
             <div key={index} className="flex items-center gap-2 ">

@@ -38,7 +38,6 @@ const AlbertaResaleCard = ({
       return mapObj[matched];
     }
   );
-  console.log(imgSrc);
 
   const handleImageError = (e) => {
     e.target.onerror = null;

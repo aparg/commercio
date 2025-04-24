@@ -50,7 +50,6 @@ export default async function AlbertaListingDetailPage({ slug }) {
   const listingIDValue = lastPart;
 
   // Fetch required data
-  console.log(listingIDValue);
   const main_data = await fetchAlbertaDataFromMLS(listingIDValue);
   const newSalesData = getFilteredAlbertaData(
     await getFilteredAlbertaData({

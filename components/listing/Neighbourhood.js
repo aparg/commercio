@@ -14,7 +14,6 @@ const Neighbourhood = ({ projectName, street_map }) => {
           Walk around the neighbourhood
         </h2>
       </div>
-      {console.log(street_map)}
       <div className="bg-white p-1 rounded-md">
         <div className="map-responsive">
           <iframe
