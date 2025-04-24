@@ -199,9 +199,9 @@ export default async function ListingListPage({ slug, searchParams }) {
               {subtitle}
             </h2>
           </div>
-          <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-auto md:w-auto md:static md:transform-none md:bottom-auto md:left-auto">
+          {/* <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-auto md:w-auto md:static md:transform-none md:bottom-auto md:left-auto">
             <AveragePriceCard averagePrice={averagePrice} />
-          </div>
+          </div> */}
         </div>
         <div className="sticky top-0 bg-white py-2 md:py-1 flex justify-between items-center mb-2 z-20 ps-0">
           <FilterBar currentFilters={filters} />

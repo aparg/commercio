@@ -33,6 +33,28 @@ const priceRanges = [
   { label: "Over $1.5M", path: "homes-over-1500k", minPrice: 1500000 },
 ];
 
+const areaRanges = [
+  { label: "under 500sqft", path: "spaces-under-500sqft", maxArea: 500 },
+  {
+    label: "under 1000sqft",
+    path: "spaces-under-1000sqft",
+
+    maxArea: 1000,
+  },
+  {
+    label: "under 1500sqft",
+    path: "spaces-under-1500sqft",
+
+    maxArea: 1500,
+  },
+  {
+    label: "over 1500sqft",
+    path: "spaces-under-1500sqft",
+
+    maxArea: 1500,
+  },
+];
+
 const getPropertyTypes = (province) => {
   //alberta property types are different from ontario api
   // if (province == "alberta") {
@@ -154,6 +176,15 @@ export default function FilterBar({ currentFilters }) {
         ).toFixed(0)}k`;
       }
 
+      // Add price range if present
+      if (filters.maxArea && !filters.minArea) {
+        urlPath += `-under-${filters.maxArea}sqft`;
+      } else if (filters.minArea && !filters.maxArea) {
+        urlPath += `over ${filters.minArea}sqft`;
+      } else if (filters.minArea && filters.maxArea) {
+        urlPath += `-between-${filters.minArea}sqft-${filters.maxArea}sqft`;
+      }
+
       // Add transaction type
       urlPath += `-for-${
         filters.transactionType === "For Lease" ? "lease" : "sale"
@@ -235,6 +266,10 @@ export default function FilterBar({ currentFilters }) {
       specParts.push(`${restFilters.minBaths}-plus-bath`);
     }
 
+    if (restFilters.minArea) {
+      specParts.push(`above-${restFilters.minArea}-sqft`);
+    }
+
     let finalUrl = `${baseUrl}/${urlPath}`;
     if (specParts.length > 0) {
       finalUrl += `/${specParts.join("/")}`;
@@ -255,6 +290,49 @@ export default function FilterBar({ currentFilters }) {
   const handleAnyPrice = () => {
     // Remove both minPrice and maxPrice while keeping all other filters
     const { minPrice, maxPrice, ...restFilters } = currentFilters;
+
+    // Build URL parts in a specific order
+    let urlPath = "";
+
+    // 1. Start with base path (homes or property type)
+    if (restFilters.propertyType) {
+      const propertyPath = propertyTypes.find(
+        (p) => p.label === restFilters.propertyType
+      )?.path;
+      // Only add -homes for specific property types
+      const shouldAddHomes = ["detached", "semi-detached"].includes(
+        propertyPath
+      );
+      urlPath = `${propertyPath}${shouldAddHomes ? "-homes" : ""}` || "homes";
+    } else {
+      urlPath = "homes";
+    }
+
+    // 2. Add transaction type
+    urlPath += `-for-${
+      restFilters.transactionType === "For Lease" ? "lease" : "sale"
+    }`;
+
+    // 3. Add beds and baths as additional path segments
+    const specParts = [];
+    if (restFilters.minBeds) {
+      specParts.push(`${restFilters.minBeds}-plus-bed`);
+    }
+    if (restFilters.minBaths) {
+      specParts.push(`${restFilters.minBaths}-plus-bath`);
+    }
+
+    // Combine all parts
+    let finalUrl = `${baseUrl}${cityPath}/${urlPath}`;
+    if (specParts.length > 0) {
+      finalUrl += `/${specParts.join("/")}`;
+    }
+
+    return finalUrl;
+  };
+
+  const handleAreaUrl = () => {
+    const { minArea, maxArea, ...restFilters } = currentFilters;
 
     // Build URL parts in a specific order
     let urlPath = "";
@@ -334,11 +412,14 @@ export default function FilterBar({ currentFilters }) {
         delete newFilters.minBaths;
         break;
       case "price":
-        delete newFilters.minPrice;
+        delete newFilters.minArea;
         delete newFilters.maxPrice;
         break;
       case "mlsStatus":
         delete newFilters.mlsStatus;
+        break;
+      case "minArea":
+        delete newFilters.minArea;
         break;
       default:
         break;
@@ -403,6 +484,8 @@ export default function FilterBar({ currentFilters }) {
         return currentFilters.mlsStatus === "Price Change";
       case "openHouse":
         return currentFilters.isOpenHouse;
+      case "minArea":
+        return !!(currentFilters.minArea || currentFilters.maxArea);
       default:
         return false;
     }
@@ -609,6 +692,73 @@ export default function FilterBar({ currentFilters }) {
                 )),
               ]}
               isActive={isFilterActive("price")}
+            />
+
+            {/* Lot size dropdown */}
+            <CustomDropdown
+              trigger={
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className={`hover:bg-[#f2f4f5] hover:shadow-xl rounded-full text-xs flex items-center justify-between h-8 hover:border-black transition-colors duration-150 min-w-[100px] ${
+                    isFilterActive("price")
+                      ? "bg-[#f2f4f5] border-black"
+                      : "bg-white border-gray-100"
+                  }`}
+                >
+                  <span>
+                    {currentFilters.minArea || currentFilters.maxArea
+                      ? `${
+                          !currentFilters.minaArea && currentFilters.maxArea
+                            ? `Under $${(currentFilters.maxArea / 1000).toFixed(
+                                0
+                              )}sqft`
+                            : `Over $${(currentFilters.minArea / 1000).toFixed(
+                                0
+                              )}sqft`
+                        }`
+                      : "Lot Size"}
+                  </span>
+                  <div className="flex items-center gap-1">
+                    {isFilterActive("area") && (
+                      <div
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.location.href = handleClearFilter("area");
+                          return false;
+                        }}
+                        className="hover:text-gray-600 cursor-pointer z-10"
+                      >
+                        <X className="h-3 w-3" />
+                      </div>
+                    )}
+                    <ChevronDown className="h-4 w-4 shrink-0 opacity-50" />
+                  </div>
+                </Button>
+              }
+              items={[
+                <Link
+                  key="any"
+                  href={handleAnyPrice()}
+                  className="px-4 py-2.5 w-full rounded-full text-xs hover:bg-gray-50 transition-colors duration-150 block"
+                >
+                  Any Lot Size
+                </Link>,
+                ...areaRanges.map((range) => (
+                  <Link
+                    key={range.path}
+                    href={getFilterUrl({
+                      minaArea: range.minaArea,
+                      maxArea: range.maxArea,
+                    })}
+                    className="px-4 py-2.5 w-full rounded-full text-xs hover:bg-gray-50 transition-colors duration-150 block"
+                  >
+                    {currentFilters.city || province} properties {range.label}
+                  </Link>
+                )),
+              ]}
+              isActive={isFilterActive("area")}
             />
 
             {/* Open House Button */}

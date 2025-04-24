@@ -102,6 +102,7 @@ export const getSalesData = async (
     if (listingType) {
       filterQuery += ` and PropertySubType eq '${listingType}'`;
     }
+
     const queriesArray = [
       `$filter=${filterQuery + ` and PropertyType eq 'Commercial'`}`,
       `$skip=${offset}`,
@@ -193,7 +194,7 @@ export const getFilteredRetsData = async (queryParams, soldData = false) => {
             queryParams.washroom?.toFixed(3) || Number(0).toFixed(3)
           }`
         : "";
-
+    let areaQuery = queryParams.minArea || queryParams.maxArea;
     // if (queryParams.houseType) {
     //   const houseTypeQuery = ` and PropertySubType eq {'value'}`;
     //   queryParams.houseType.forEach((param, index) => {
