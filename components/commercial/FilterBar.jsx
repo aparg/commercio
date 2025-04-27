@@ -55,44 +55,6 @@ const areaRanges = [
   },
 ];
 
-const getPropertyTypes = (province) => {
-  //alberta property types are different from ontario api
-  // if (province == "alberta") {
-  //   return [
-  //     { label: "Detached", path: "detached", subtypes: ["Detached"] },
-  //     {
-  //       label: "Semi Detached",
-  //       path: "semi-detached",
-  //       subtypes: ["Semi Detached (Half Duplex)"],
-  //     },
-  //     { label: "Townhomes", path: "town-homes", subtypes: ["Row/Townhouse"] },
-
-  //     { label: "Apartments", path: "apartment", subtypes: ["Apartment"] },
-  //   ];
-  // }
-  //return below property types by default
-  return [
-    { label: "Retail", path: "retail", subtypes: ["Commercial Retail"] },
-    {
-      label: "Land",
-      path: "land",
-      subtypes: ["Land"],
-    },
-    { label: "Office", path: "office", subtypes: ["Office"] },
-    {
-      label: "Industrial Space",
-      path: "industrial-space",
-      subtypes: ["Industrial"],
-    },
-    // {
-    //   label: "Medical",
-    //   path: "medical",
-    //   subtypes: ["Medical"],
-    // },
-    // { label: "Apartments", path: "apartment", subtypes: ["Apartment"] },
-  ];
-};
-
 const bedOptions = [
   { label: "1+ Bed", value: 1 },
   { label: "2+ Beds", value: 2 },
@@ -102,6 +64,38 @@ const bedOptions = [
 ];
 
 export default function FilterBar({ currentFilters }) {
+  const getPropertyTypes = (province) => {
+    return [
+      {
+        label: `Retail Space`,
+        path: "retail",
+        subtypes: ["Commercial Retail"],
+      },
+      {
+        label: `Land ${
+          currentFilters.transactionType == "For Lease"
+            ? `for lease`
+            : "for sale"
+        }`,
+        path: "land",
+        subtypes: ["Land"],
+      },
+      {
+        label: `Office Space`,
+        path: "office",
+        subtypes: ["Office"],
+      },
+      {
+        label: `Industrial Space ${
+          currentFilters.transactionType == "For Lease"
+            ? `for lease`
+            : "for sale"
+        }`,
+        path: "industrial-space",
+        subtypes: ["Industrial"],
+      },
+    ];
+  };
   const cityPath = currentFilters.city
     ? `/${currentFilters.city.toLowerCase().replace(/ /g, "-")}`
     : "";
@@ -695,7 +689,7 @@ export default function FilterBar({ currentFilters }) {
             />
 
             {/* Lot size dropdown */}
-            <CustomDropdown
+            {/* <CustomDropdown
               trigger={
                 <Button
                   variant="outline"
@@ -759,7 +753,7 @@ export default function FilterBar({ currentFilters }) {
                 )),
               ]}
               isActive={isFilterActive("area")}
-            />
+            /> */}
 
             {/* Open House Button */}
             {/* <div className="relative">
