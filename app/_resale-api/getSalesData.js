@@ -238,7 +238,7 @@ export const getFilteredRetsData = async (queryParams, soldData = false) => {
     } else {
       url = residential.properties.replace(
         "$query",
-        `?$filter=ContractStatus eq 'Available' and PropertyType eq 'Commercial' and StandardStatus eq 'Active' and ${selectQuery} ${rangeQuery}&$skip=${skipQuery}&$top=${limitQuery}&$orderby=ModificationTimestamp desc,ListingKey desc`
+        `?$filter=ContractStatus eq 'Available' and PropertyType eq 'Commercial' and StandardStatus eq 'Active' and MlsStatus ne 'Expired' and ${selectQuery} ${rangeQuery}&$skip=${skipQuery}&$top=${limitQuery}&$orderby=ModificationTimestamp desc,ListingKey desc`
       );
     }
     const options = {
@@ -316,7 +316,9 @@ export const fetchDataFromMLS = async (listingID, soldData = false) => {
         Authorization: process.env.BEARER_TOKEN_FOR_API,
       },
     };
-    const queriesArray = [`$filter=ListingKey eq '${listingID}'`];
+    const queriesArray = [
+      `$filter=ListingKey eq '${listingID}  and StandardStatus eq 'Active' and MlsStatus ne 'Expired''`,
+    ];
     const urlToFetchMLSDetail = residential.properties.replace(
       "$query",
       `?${queriesArray.join("&")}`
