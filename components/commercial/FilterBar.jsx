@@ -11,26 +11,26 @@ import capitalizeFirstLetter from "@/helpers/capitalizeFirstLetter.js";
 import { useRouter } from "next/navigation";
 
 const priceRanges = [
-  { label: "under $500k", path: "homes-under-500k", maxPrice: 500000 },
+  { label: "under $500k", path: "businesses-under-500k", maxPrice: 500000 },
   {
     label: "under $750k",
-    path: "homes-under-750k",
+    path: "businesses-under-750k",
 
     maxPrice: 750000,
   },
   {
     label: "under $1M",
-    path: "homes-under-1000k",
+    path: "businesses-under-1000k",
 
     maxPrice: 1000000,
   },
   {
     label: "under $1.5M",
-    path: "homes-under-1500k",
+    path: "businesses-under-1500k",
 
     maxPrice: 1500000,
   },
-  { label: "Over $1.5M", path: "homes-over-1500k", minPrice: 1500000 },
+  { label: "Over $1.5M", path: "businesses-over-1500k", minPrice: 1500000 },
 ];
 
 const areaRanges = [
@@ -120,6 +120,8 @@ export default function FilterBar({ currentFilters }) {
       }
     });
 
+    console.log(filters);
+
     let urlPath = "";
 
     // If we have a city, it should be the first part of the path
@@ -151,12 +153,10 @@ export default function FilterBar({ currentFilters }) {
           (p) => p.label === filters.propertyType
         )?.path;
         // Only add -homes for specific property types
-        const shouldAddHomes = ["detached", "semi-detached"].includes(
-          propertyPath
-        );
-        urlPath += `${propertyPath}${shouldAddHomes ? "-homes" : ""}`;
+        const shouldAddHomes = ["industrial", "retail"].includes(propertyPath);
+        urlPath += `${propertyPath}${shouldAddHomes ? "-businesses" : ""}`;
       } else {
-        urlPath += "homes";
+        urlPath += "businesses";
       }
 
       // Add price range if present
@@ -294,12 +294,11 @@ export default function FilterBar({ currentFilters }) {
         (p) => p.label === restFilters.propertyType
       )?.path;
       // Only add -homes for specific property types
-      const shouldAddHomes = ["detached", "semi-detached"].includes(
-        propertyPath
-      );
-      urlPath = `${propertyPath}${shouldAddHomes ? "-homes" : ""}` || "homes";
+      const shouldAddHomes = ["industrial", "retail"].includes(propertyPath);
+      urlPath =
+        `${propertyPath}${shouldAddHomes ? "-spaces" : ""}` || "businesses";
     } else {
-      urlPath = "homes";
+      urlPath = "businesses";
     }
 
     // 2. Add transaction type
@@ -483,56 +482,6 @@ export default function FilterBar({ currentFilters }) {
       default:
         return false;
     }
-  };
-
-  // Add function to get open house URL
-  const getOpenHouseUrl = () => {
-    return `${baseUrl}${cityPath}/open-houses`;
-  };
-
-  // Add function to handle clearing open house filter
-  const handleClearOpenHouse = () => {
-    return `${baseUrl}${cityPath}/homes-for-sale`;
-  };
-
-  const handleBedFilter = (beds) => {
-    const newFilters = { ...currentFilters };
-    if (beds === "any") {
-      delete newFilters.minBeds;
-    } else {
-      newFilters.minBeds = beds;
-    }
-
-    let urlPath = "";
-    if (newFilters.city) {
-      urlPath += `/${newFilters.city}`;
-    }
-
-    // Handle property type path
-    if (newFilters.propertyType) {
-      const propertyPath = propertyTypes.find(
-        (p) => p.label === newFilters.propertyType
-      )?.path;
-      if (propertyPath) {
-        // Only add -homes for specific property types
-        const shouldAddHomes = ["detached", "semi-detached"].includes(
-          propertyPath
-        );
-        urlPath += `/${propertyPath}${shouldAddHomes ? "-homes" : ""}`;
-      }
-    }
-
-    // Add transaction type
-    urlPath += `-for-${
-      newFilters.transactionType === "For Lease" ? "lease" : "sale"
-    }`;
-
-    // Add bed filter
-    if (newFilters.minBeds) {
-      urlPath += `/${newFilters.minBeds}-plus-bed`;
-    }
-
-    router.push(`/commercial/ontario${urlPath}`);
   };
 
   return (

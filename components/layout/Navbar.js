@@ -32,46 +32,46 @@ const Navbar = () => {
         cityVal: cityName || null,
       }),
     },
-    // {
-    //   name:
-    //     "Semi Detached Homes for Sale" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "semi detached",
-    //     saleLeaseVal: "sale",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
-    // {
-    //   name:
-    //     "Detached Homes for Sale" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "detached",
-    //     saleLeaseVal: "sale",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
-    // {
-    //   name:
-    //     "Townhomes for Sale" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "townhomes",
-    //     saleLeaseVal: "sale",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
-    // {
-    //   name:
-    //     "Condos for Sale" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "condo",
-    //     saleLeaseVal: "sale",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
+    {
+      name:
+        "Retail Space for Sale" +
+        `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
+      link: generateURL({
+        houseTypeVal: "Retail",
+        saleLeaseVal: "sale",
+        cityVal: cityName || null,
+      }),
+    },
+    {
+      name:
+        "Land for Sale" +
+        `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
+      link: generateURL({
+        houseTypeVal: "land",
+        saleLeaseVal: "sale",
+        cityVal: cityName || null,
+      }),
+    },
+    {
+      name:
+        "Office for Sale" +
+        `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
+      link: generateURL({
+        houseTypeVal: "office",
+        saleLeaseVal: "sale",
+        cityVal: cityName || null,
+      }),
+    },
+    {
+      name:
+        "Industrial Space for Sale" +
+        `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
+      link: generateURL({
+        houseTypeVal: "industrial",
+        saleLeaseVal: "sale",
+        cityVal: cityName || null,
+      }),
+    },
     {
       name:
         "Price dropped businesses" +
@@ -94,66 +94,56 @@ const Navbar = () => {
         cityVal: cityName || null,
       }),
     },
-    // {
-    //   name:
-    //     "Semi Detached Homes for Lease" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "semi detached",
-    //     saleLeaseVal: "lease",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
-    // {
-    //   name:
-    //     "Detached Homes for Lease" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "detached",
-    //     saleLeaseVal: "lease",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
-    // {
-    //   name:
-    //     "Townhomes for Lease" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "Townhomes",
-    //     saleLeaseVal: "lease",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
-    // {
-    //   name:
-    //     "Duplex Homes for Lease" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "duplex",
-    //     saleLeaseVal: "lease",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
-    // {
-    //   name:
-    //     "Triplex Homes for Lease" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "triplex",
-    //     saleLeaseVal: "lease",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
-    // {
-    //   name:
-    //     "Condos for Lease" +
-    //     `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
-    //   link: generateURL({
-    //     houseTypeVal: "condo",
-    //     saleLeaseVal: "lease",
-    //     cityVal: cityName || null,
-    //   }),
-    // },
+    {
+      name:
+        "Retail Space for Lease" +
+        `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
+      link: generateURL({
+        houseTypeVal: "Retail",
+        saleLeaseVal: "lease",
+        cityVal: cityName || null,
+      }),
+    },
+    {
+      name:
+        "Land for Lease" +
+        `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
+      link: generateURL({
+        houseTypeVal: "land",
+        saleLeaseVal: "lease",
+        cityVal: cityName || null,
+      }),
+    },
+    {
+      name:
+        "Office for Lease" +
+        `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
+      link: generateURL({
+        houseTypeVal: "office",
+        saleLeaseVal: "lease",
+        cityVal: cityName || null,
+      }),
+    },
+    {
+      name:
+        "Industrial Space for Lease" +
+        `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
+      link: generateURL({
+        houseTypeVal: "industrial",
+        saleLeaseVal: "lease",
+        cityVal: cityName || null,
+      }),
+    },
+    {
+      name:
+        "Price dropped businesses" +
+        `${cityName ? ` in ${capitalizeFirstLetter(cityName)}` : ""}`,
+      link: generateURL({
+        saleLeaseVal: "lease",
+        cityVal: cityName || null,
+        priceDropped: true,
+      }),
+    },
   ];
 
   const preConstructionOpts = preconCityList.map((city) => ({

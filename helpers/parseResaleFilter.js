@@ -163,9 +163,12 @@ export function parseSlug(slug, province = "ontario") {
   }
 
   // Handle transaction type
-  if (parts.some((part) => part === "for-lease")) {
+  if (path.includes("for-lease")) {
     filters.transactionType = "For Lease";
-  } else if (parts.some((part) => part === "for-sale")) {
+  } else if (path.includes("for-sale")) {
+    filters.transactionType = "For Sale";
+  } else {
+    // Default to For Sale if no transaction type is specified
     filters.transactionType = "For Sale";
   }
 

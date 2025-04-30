@@ -147,7 +147,6 @@ function generateSubtitle(filters, total) {
 
 export default async function ListingListPage({ slug, searchParams }) {
   const filters = parseSlug(slug);
-
   if (!filters) {
     notFound();
   }

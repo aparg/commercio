@@ -264,14 +264,18 @@ export const priceRangesLeaseProperties = {
 
 export const houseType = {
   all: { name: "All Properties", value: null },
-  semi: {
-    name: "Semi Detached",
-    value: "Semi-Detached ",
-    slug: "semi-detached-homes",
+  retail: {
+    name: "Retail",
+    value: "Retail",
+    slug: "retail",
   },
-  detached: { name: "Detached", value: "Detached", slug: "detached-homes" },
-  town: { name: "Townhomes", value: "Att/Row/Townhouse", slug: "townhomes" },
-  condo: { name: "Condo", value: "Condo Apartment", slug: "condos" },
+  land: { name: "Land", value: "Land", slug: "land" },
+  town: { name: "Office", value: "Office", slug: "office" },
+  industrial: {
+    name: "Industrial",
+    value: "industrial",
+    slug: "industrial",
+  },
 };
 
 export const basementType = {
@@ -302,15 +306,15 @@ export const homeText = {
 };
 
 export const propertyTypes = {
-  "semi-detached": {
-    label: "Semi-Detached",
-    subtypes: ["Semi-Detached"],
-    exactPath: "semi-detached",
+  land: {
+    label: "Land",
+    subtypes: ["Land"],
+    exactPath: "land",
   },
-  detached: {
-    label: "Detached",
-    subtypes: ["Detached"],
-    exactPath: "detached",
+  retail: {
+    label: "Retail Space",
+    subtypes: ["Retail"],
+    exactPath: "retail",
   },
   "condo-townhomes": {
     label: "Condo Townhome",
@@ -331,12 +335,16 @@ export const propertyTypes = {
 
 export const pillar9HouseTypes = {
   all: { name: "All Properties", value: null },
-  semi: {
-    name: "Semi Detached",
-    value: "Semi Detached (Half Duplex)",
-    slug: "semi-detached-homes",
+  retail: {
+    name: "Retail",
+    value: "Retail",
+    slug: "retail",
   },
-  detached: { name: "Detached", value: "Detached", slug: "detached-homes" },
-  town: { name: "Townhomes", value: "Row/Townhouse", slug: "townhomes" },
-  apartment: { name: "Apartment", value: "Apartment", slug: "apartment" },
+  land: { name: "Land", value: "Land", slug: "land" },
+  town: { name: "Office", value: "Office", slug: "office" },
+  industrial: {
+    name: "Industrial Space",
+    value: "Industrial",
+    slug: "industrial",
+  },
 };

@@ -15,11 +15,11 @@ const PropertyLinksGrid = ({ currentCity = "Toronto" }) => {
   ];
 
   const priceRanges = [
-    { label: "Under $500k", slug: "homes-under-500k" },
-    { label: "Under $750k", slug: "homes-under-750k" },
-    { label: "Under $1M", slug: "homes-under-1000k" },
-    { label: "Under $1.5M", slug: "homes-under-1500k" },
-    { label: "Over $1.5M", slug: "homes-over-1500k" },
+    { label: "Under $500k", slug: "businesses-under-500k" },
+    { label: "Under $750k", slug: "businesses-under-750k" },
+    { label: "Under $1M", slug: "businesses-under-1000k" },
+    { label: "Under $1.5M", slug: "businesses-under-1500k" },
+    { label: "Over $1.5M", slug: "businesses-over-1500k" },
   ];
 
   const bedBathOptions = [

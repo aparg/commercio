@@ -4,7 +4,6 @@ import ListingDetailPage from "@/components/commercial/ListingDetailPage";
 
 export default async function DynamicPage({ params, searchParams }) {
   const slug = params.slug1;
-
   // Check if this is a property detail page
   if (slug.length >= 2 && slug[slug.length - 2] === "listings") {
     try {
