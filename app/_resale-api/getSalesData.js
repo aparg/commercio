@@ -317,7 +317,7 @@ export const fetchDataFromMLS = async (listingID, soldData = false) => {
       },
     };
     const queriesArray = [
-      `$filter=ListingKey eq '${listingID}  and StandardStatus eq 'Active' and MlsStatus ne 'Expired''`,
+      `$filter=ListingKey eq '${listingID}' and StandardStatus eq 'Active' and MlsStatus ne 'Expired'`,
     ];
     const urlToFetchMLSDetail = residential.properties.replace(
       "$query",
